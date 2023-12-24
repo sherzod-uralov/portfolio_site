@@ -1,0 +1,156 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'fira-code-light';
+    src: url("../fonts/FiraCode-Light.ttf");
+}
+
+
+@font-face {
+    font-family: 'fira-code-regular';
+    src: url("../fonts/FiraCode-Regular.ttf");
+}
+
+@font-face {
+    font-family: 'fira-code-bolf';
+    src: url("../fonts/Poppins-Bold.ttf");
+}
+
+.fira-code-light {
+    font-family: 'fira-code-light', sans-serif;
+}
+
+.fira-code-regular {
+    font-family: 'fira-code-regular', sans-serif;
+}
+
+.fira-code-bold {
+    font-family: 'fira-code-bolf', sans-serif;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.container {
+    padding: 0 10px;
+}
+
+body {
+    background: #011627;
+}
+
+/*typewriter css animation*/
+
+.text {
+    position: relative;
+}
+
+.first-text {
+    color: white;
+}
+
+.sec-text:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: #011627;
+    border-left: solid 2px #4D5BCE;
+    animation: animate 4s steps(16) infinite;
+}
+
+@keyframes animate {
+    40%, 60% {
+        left: 100%;
+    }
+    100% {
+        left: 0;
+    }
+}
+
+.hero-right {
+    border-radius: 8px;
+    border: 1px solid #0C1616;
+    background: linear-gradient(150deg, rgba(23, 85, 83, 0.70) 1.7%, rgba(67, 217, 173, 0.09) 81.82%);
+    box-shadow: 0 2px 0 0 rgba(255, 255, 255, 0.30) inset;
+    backdrop-filter: blur(32px);
+}
+
+.hero-right-box {
+    background: rgba(1, 20, 35, 0.19);
+}
+
+.triangle {
+    clip-path: polygon(50% 0, 100% 100%, 0 100%);
+    width: 8px;
+    height: 8px;
+}
+
+.snake-trail {
+    background: linear-gradient(to bottom, #68d391, #2c7a7b);
+    border-radius: 5px;
+}
+
+.game-over {
+    box-shadow: 1px 5px 11px 0 rgba(2, 18, 27, 0.71) inset;;
+}
+
+.shadowss {
+    box-shadow: 0px 0px 0px 5px rgba(0, 255, 187, 0.4);
+}
+
+.anime {
+    animation: aylana 30s ease infinite;
+}
+
+.anime2 {
+    animation: aylana1 30s ease infinite;
+}
+
+@keyframes aylana {
+    0% {
+        transform: rotate(0deg);
+    }
+    20% {
+        transform: rotate(60deg);
+    }
+    40% {
+        transform: rotate(120deg);
+    }
+    60% {
+        transform: rotate(180deg);
+    }
+    80% {
+        transform: rotate(240deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+@keyframes aylana1 {
+    0% {
+        transform: rotate(0deg);
+    }
+    20% {
+        transform: rotate(-60deg);
+    }
+    40% {
+        transform: rotate(-120deg);
+    }
+    60% {
+        transform: rotate(-180deg);
+    }
+    80% {
+        transform: rotate(-240deg);
+    }
+    100% {
+        transform: rotate(-360deg);
+    }
+}
