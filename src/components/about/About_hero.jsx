@@ -18,6 +18,7 @@ const AboutHero = () => {
     return (
         <div>
             <div className="fixed left-0">
+                <h1></h1>
                 <div className="flex flex-col h-screen gap-[33px] border-t-0 pl-[24px] pt-[17px] pr-[20px] border-solid border-[1px] border-[#1E2D3D]">
                     <IoTerminalSharp className="text-[#607B96] opacity-[0.4] w-[24px] h-[24px]" />
                     <img className="w-[24px] h-[24px]" src={mage} alt="mage" />
