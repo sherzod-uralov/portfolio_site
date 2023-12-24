@@ -18,6 +18,10 @@
     src: url("../fonts/Poppins-Bold.ttf");
 }
 
+.app {
+
+}
+
 .fira-code-light {
     font-family: 'fira-code-light', sans-serif;
 }
