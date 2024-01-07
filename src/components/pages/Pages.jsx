@@ -99,7 +99,7 @@ const Pages = () => {
     useEffect(() => {
         const time = setTimeout(() => {
             setShow(true)
-        }, 2000)
+        }, 5000)
 
         return () => clearTimeout(time)
     }, [])
@@ -171,7 +171,7 @@ const Pages = () => {
             </div>
             <div className="border-solid border-[1px] border-t-0 md:border-t-[1px] border-l-0 md:mt-[37px] mt-0 relative h-full pb-40 w-full overflow-auto border-[#1E2D3D]">
                 {show ? (
-                        <div className="grid grid-cols-1 md:grid-cols:1 place-items-center place-content-center lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 pl-5 md:pr-5 pr-5 gap-8 pt-6  md:pt-12">
+                        <div className="grid grid-cols-1 md:grid-cols:1 place-items-center place-content-center lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 pl-6 md:pr-5 pr-5 gap-8 pt-6  md:pt-12">
                         {filterArr.length !== 0
                             ? filter.map((item, index) => (
                                   <div key={index}>

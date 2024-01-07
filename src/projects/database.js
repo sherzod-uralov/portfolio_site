@@ -7,7 +7,7 @@ const projectsDb = [
         id: 1,
         project_name: 'youtube',
         project_description: 'youtube clone react.js frameworkida yozilgan.',
-        url: 'https://youtube.com',
+        url: 'https://youtube-clone-lion.netlify.app/',
         language_icon:FaReact,
         language:'react',
         image_link: 'https://w0.peakpx.com/wallpaper/775/909/HD-wallpaper-youtube-logo-grunge-black-background-youtube-logo.jpg'

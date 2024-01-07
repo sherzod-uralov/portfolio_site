@@ -191,15 +191,9 @@ body {
 ::-webkit-scrollbar-thumb:hover {
     background: #607B96;
 }
-* {
-    scrollbar-width: unset;
-    scrollbar-color: black red; /* Handle color Track color */
-}
 
-/* Handle on hover */
-*:hover {
-    scrollbar-color: #555 red; /* Handle color on hover Track color */
-}
+
+
 /* Hide default checkbox */
 .custom-checkbox input {
     position: absolute;
