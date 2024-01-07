@@ -35,8 +35,8 @@ const AboutHero = () => {
         return pixel;
     };
 
-    const q = calc();
-    console.log(q)
+
+
     const toggleAccordion = (state, set, name) => {
         setopenedFolder((prevFolders) => {
             const folderIndex = prevFolders.findIndex((e) => e.name === name)

@@ -99,7 +99,7 @@ const Pages = () => {
     useEffect(() => {
         const time = setTimeout(() => {
             setShow(true)
-        }, 5000)
+        }, 2000)
 
         return () => clearTimeout(time)
     }, [])
