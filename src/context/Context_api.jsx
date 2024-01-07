@@ -5,6 +5,7 @@ export const MyContext = createContext()
 
 // Create a provider
 function ContextApiProvider({ children }) {
+    const [burger,setBUrger] = useState(false)
     const [state, setState] = useState('Initial State')
     const [score, setScore] = useState(0)
     const [gameOver, setGameOver] = useState(false)
@@ -17,6 +18,8 @@ function ContextApiProvider({ children }) {
     const contextValue = {
         state,
         score,
+        burger,
+        setBUrger,
         start,
         setStart,
         gameOver,

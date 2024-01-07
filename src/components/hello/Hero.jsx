@@ -2,15 +2,16 @@ import { useContext, useEffect, useRef, useState } from 'react'
 import bold from '../../assets/svg/bolt-up-right.svg'
 import SnakeGame from '../../game/Snake.jsx'
 import { MyContext } from '../../context/Context_api.jsx'
-
+import  blue from '../../assets/svg/Blue(1).svg'
+import green from '../../assets/svg/Green(1).svg'
 const Hero = () => {
     const [directionSnake, setDirectionSnake] = useState('RIGHT')
     const githubLink = '"' + 'https://github.com/sherzod-uralov' + '"'
     const { score, setScore, gameOver, start, setStart } = useContext(MyContext)
     const [scoreDrop, setScoreDrop] = useState([])
     const bubble = scoreDrop.slice(1, scoreDrop.length - 1)
+    let animate = 0;
 
-    console.log(bubble)
     const sectextRef = useRef(null)
     const handleArrowUp = () => {
         setDirectionSnake('UP')
@@ -27,67 +28,81 @@ const Hero = () => {
     const handleArrowRight = () => {
         setDirectionSnake('RIGHT')
     }
+
+    const measureExecutionTime = (func) => {
+        const startTime = performance.now();
+        func();
+        const endTime = performance.now();
+        const executionTime = endTime - startTime;
+        console.log(`Funksiya ${func.name} ${executionTime} millisekundda ishga tushdi.`);
+    };
+
     const textLoad = () => {
+        let a = 0;
+        let b = 4000;
+        let c = 8000;
         setTimeout(() => {
-            if (sectextRef.current) {
-                sectextRef.current.textContent = 'front-end engineer'
-            }
-        }, 0)
+            sectextRef.current.textContent = 'front-end engineer';
+        }, a);
         setTimeout(() => {
-            if (sectextRef.current) {
-                sectextRef.current.textContent = 'software engineer'
-            }
-        }, 4000)
+            sectextRef.current.textContent = 'software engineer';
+        }, b);
         setTimeout(() => {
-            if (sectextRef.current) {
-                sectextRef.current.textContent = 'back-end developer'
-            }
-        }, 8000)
-    }
+            sectextRef.current.textContent = 'back-end developer';
+        }, c);
+        animate -= 10
+    };
+
+    measureExecutionTime(textLoad);
 
     useEffect(() => {
-        console.log(start)
+        textLoad();
+        const intervalId = setInterval(() => {
+            textLoad();
+        }, 12000);
+
+        return  () => clearInterval(intervalId);
+    }, []);
+
+    useEffect(() => {
         if (start) {
-            setScoreDrop([2])
-            setStart(false)
+            setScoreDrop([2]);
+            setStart(false);
         }
-        setScoreDrop((prevScores) => [...prevScores, score])
-    }, [score])
-
-    useEffect(() => {
-        textLoad()
-        setInterval(textLoad, 12000)
-
-        return () => clearInterval(textLoad)
-    }, [])
+        setScoreDrop((prevScores) => [...prevScores, score]);
+    }, [score]);
 
     return (
-        <div className=" w-[1320px]  pt-[100px] m-auto">
-            <div className="flex items-center justify-between">
-                <div>
-                    <span className="fira-code-regular text-white font-medium text-[18px]">
+        <div className=" w-[1320px]  pt-[200px] m-auto">
+            <div className="flex items-center justify-between relative">
+                <img src={blue} alt="" className="absolute sm:hidden top-[-680px] -left-20 block" />
+                <img src={green} alt="" className="absolute sm:hidden block -left-24 bottom-[-650px]" />
+                <div className="sm:pl-10 pl-4 xl:pl-0">
+                    <div>
+                        <span className="fira-code-regular text-white font-medium text-[18px]">
                         Hi all. I am
                     </span>
-                    <h1 className="text-white text-[62px] fira-code-regular font-medium mt-[-10px]">
-                        Uralov Sherzod
-                    </h1>
-                    <div className="typewriter-container pb-[70px] mt-[-12px]">
-                        <span className="text first-text fira-code-regular text-2xl pr-3 bottom-[2px] absolute">
+                        <h1 className="text-white text-[62px] leading-[66px] pt-5 pb-6 fira-code-regular font-medium w-[291px] sm:w-auto mt-[-10px]">
+                            Uralov Sherzod
+                        </h1>
+                        <div className="typewriter-container pb-[70px] mt-[-12px]">
+                        <span className="text first-text fira-code-regular text-2xl text-lg pr-3 bottom-[2px] absolute">
                             {'>'}
                         </span>
-                        <span
-                            ref={sectextRef}
-                            className="text sec-text fira-code-regular font-medium text-[#4D5BCE] text-[32px]"
-                        ></span>
+                            <span
+                                ref={sectextRef}
+                                className="text sec-text fira-code-regular font-medium text-[#4D5BCE] sm:text-[32px] text-[28px]"
+                            ></span>
+                        </div>
                     </div>
                     <div>
                         <span className="text-[#607B96] fira-code-regular block pb-[5px] font-[16px]">
                             {'//'} complete the game to continue
                         </span>
-                        <span className="text-[#607B96] fira-code-regular block font-[16px]">
+                        <span className="text-[#607B96] fira-code-regular  font-[16px] hidden sm:block">
                             {'//'} you can also see it on my Github page
                         </span>
-                        <div className="flex items-center gap-[7px] fira-code-regular pt-[6px]">
+                        <div className="hidden sm:flex items-center gap-[7px] fira-code-regular pt-[6px]">
                             <p className="text-[#4D5BCE] text-[16px]">const</p>
                             <p className="text-[#43D9AD] text-[16px]">
                                 githubLink
@@ -102,9 +117,25 @@ const Hero = () => {
                                 {githubLink}
                             </a>
                         </div>
+                        <div className="items-center gap-[7px] fira-code-regular flex sm:hidden pt-[6px]">
+                            <p className="text-[#4D5BCE] text-[16px]">const</p>
+                            <p className="text-[#43D9AD] text-[16px]">
+                                githubLink
+                            </p>
+                            <p className="text-white">=</p>
+                            <a
+                                className="text-[#E99287]"
+                                target="_blank"
+                                href={'https://github.com/sherzod-uralov'}
+                                rel="noreferrer"
+                            >
+                                https://
+                            </a>
+                        </div>
+                        <span className="block sm:hidden fira-code-regular text-[#E99287] text-[16px]">github.com/sherzod-uralov</span>
                     </div>
                 </div>
-                <div className="relative">
+                <div className="relative xl:block hidden">
                     <svg
                         className="absolute anime2 top-[-240px] left-[-250px]"
                         width="864"
@@ -209,7 +240,8 @@ const Hero = () => {
                             alt=""
                         />
                         <div>
-                            <div className="hero-right-box rounded-[8px] top-[35px] pt-[15px] px-[13px] pb-[12px] right-[35px] absolute w-[181px] h-[148px]">
+                            <div
+                                className="hero-right-box rounded-[8px] top-[35px] pt-[15px] px-[13px] pb-[12px] right-[35px] absolute w-[181px] h-[148px]">
                                 <p className="fira-code-regular text-white text-[14px]">
                                     {'//'} use keyboard <br /> {'//'} arrows to
                                     play
@@ -264,7 +296,8 @@ const Hero = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="bg-[#011627D6] w-[238px] h-[405px] absolute top-[35px] left-[30px] rounded-[8px]">
+                        <div
+                            className="bg-[#011627D6] w-[238px] h-[405px] absolute top-[35px] left-[30px] rounded-[8px]">
                             <SnakeGame value={directionSnake} />
                         </div>
                     </div>

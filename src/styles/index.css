@@ -39,7 +39,8 @@
 }
 
 .container {
-    padding: 0 10px;
+    max-width: 100%;
+    width: 50vw;
 }
 
 body {
@@ -65,7 +66,7 @@ body {
     width: 100%;
     background: #011627;
     border-left: solid 2px #4D5BCE;
-    animation: animate 4s steps(16) infinite;
+    animation: animate 4s steps(30) infinite;
 }
 
 @keyframes animate {
@@ -156,5 +157,97 @@ body {
     }
     100% {
         transform: rotate(-360deg);
+    }
+}
+
+/* width */
+
+
+
+
+/* width */
+::-webkit-scrollbar {
+    width: 20px;
+    border-radius: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+.centered{
+    position: absolute;
+    /* Sizning ma'lumotlaringiz uchun kerakli stilni qo'shing */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #607B96;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #607B96;
+}
+* {
+    scrollbar-width: unset;
+    scrollbar-color: black red; /* Handle color Track color */
+}
+
+/* Handle on hover */
+*:hover {
+    scrollbar-color: #555 red; /* Handle color on hover Track color */
+}
+/* Hide default checkbox */
+.custom-checkbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Style for the custom checkbox */
+.custom-checkbox .checkmark {
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+    border: solid 1px #607B96;
+    border-radius:2px;
+    margin-right: 10px;
+}
+
+/* Show a checkmark when the checkbox is checked */
+.custom-checkbox input:checked + .checkmark {
+    background-color: #607B96;
+}
+
+/* Style for the checkmark inside the custom checkbox */
+.custom-checkbox .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 7px;
+    top: 3px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+}
+
+/* Show the checkmark when the checkbox is checked */
+.custom-checkbox input:checked + .checkmark:after {
+    display: block;
+}
+
+@media screen and (max-width:377px) {
+    .footer-h2{
+        font-size: 15px;
+    }
+    .me{
+        display: none;
     }
 }

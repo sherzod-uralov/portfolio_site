@@ -1,15 +1,20 @@
 import Nav from './components/hello/Nav.jsx'
 import Hero from './components/hello/Hero.jsx'
 import Footer from './components/hello/Footer.jsx'
+import { useContext } from 'react'
+import { MyContext } from './context/Context_api.jsx'
 
 function App() {
+const {burger} = useContext(MyContext)
     return (
-        <div className="">
-            <header className="h-screen overflow-x-hidden overflow-y-hidden">
+        <div>
+                <header className="h-screen overflow-x-hidden overflow-y-hidden">
                 <Nav />
                 <Hero />
             </header>
-            <Footer />
+            <div className={`${burger ? 'sm:block' : 'hidden'} sm:block`}>
+                <Footer/>
+            </div>
         </div>
     )
 }
