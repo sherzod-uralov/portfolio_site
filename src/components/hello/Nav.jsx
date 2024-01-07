@@ -84,7 +84,7 @@ const Nav = () => {
                         </div>
                         <div className="relative cursor-pointer block sm:hidden w-full sm:w-auto">
                             <Link
-                                to={'https://drive.google.com/file/d/1uSl0RLpsMPynjjqZBn0zJ5Qllsq6wzFI/view?usp=drive_link'}
+                                to={'https://drive.google.com/file/d/1uSl0RLpsMPynjjqZBn0zJ5Qllsq6wzFI/view?usp=sharing'}
                                 target='_blank'
                                 onClick={closeMneu}
                              className= {`border-solid border-x-[1px] text-[#607B96] border-b-[1px] sm:border-b-0 block px-[30px] border-[#1E2D3D] py-[15px] text-[15px] fira-code-regular font-normal`}
@@ -95,7 +95,7 @@ const Nav = () => {
                     </div>
                 </div>
                 <Link
-                    to={'https://drive.google.com/file/d/1uSl0RLpsMPynjjqZBn0zJ5Qllsq6wzFI/view?usp=drive_link'}
+                    to={'https://drive.google.com/file/d/1uSl0RLpsMPynjjqZBn0zJ5Qllsq6wzFI/view?usp=sharing'}
                     target='_blank'
                     className="cursor-pointer text-[#607B96] text-[15px] border-b-[1px] sm:border-b-0 fira-code-regular font-normal xl:block hidden border-solid border-l-[1px] py-[15px] pl-[23px] border-[#1E2D3D]"
                 >
